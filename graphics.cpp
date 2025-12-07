@@ -1,4 +1,4 @@
-#include "graphics.h"
+ #include "graphics.h"
 
 #include "assets.h"
 #include "ball.h"
@@ -36,8 +36,6 @@ Vector2 shift_to_center;
 Vector2 victory_balls_pos[victory_balls_count];
 Vector2 victory_balls_vel[victory_balls_count];
 
-size_t game_frame = 0;
-
 void draw_image(const Texture2D& image, const float x, const float y, const float width, const float height)
 {
     const Rectangle source = { 0.0f, 0.0f, static_cast<float>(image.width), static_cast<float>(image.height) };
@@ -52,6 +50,7 @@ void draw_image(const Texture2D& image, const float x, const float y, const floa
 
 void draw_sprite(sprite& sprite, const float x, const float y, const float width, const float height)
 {
+    ++game_frame;
     draw_image(sprite.frames[sprite.frame_index], x, y, width, height);
 
     if (sprite.prev_game_frame == game_frame) {
@@ -109,17 +108,17 @@ void draw_menu()
         "Breakout",
         { 0.50f, 0.50f },
         200.0f,
-        RED,
+        PINK,
         4.0f,
         &menu_font
     };
     draw_text(game_title);
 
     const Text game_subtitle = {
-        "Press Enter to Start",
+        "PRESS ENTER TO BEGIN THE GAME",
         { 0.50f, 0.65f },
         32.0f,
-        WHITE,
+        SKYBLUE,
         4.0f,
         &menu_font
     };

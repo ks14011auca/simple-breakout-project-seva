@@ -73,7 +73,8 @@ bool is_colliding_with_level_cell(const Vector2 pos, const Vector2 size, const c
             }
 
             if (get_level_cell(row, column) == cell) {
-                if (const Rectangle block_hitbox = { static_cast<float>(column), static_cast<float>(row), 1.0f, 1.0f }; CheckCollisionRecs(hitbox, block_hitbox)) {
+                if (const Rectangle block_hitbox = { static_cast<float>(column), static_cast<float>(row), 1.0f, 1.0f };
+                    CheckCollisionRecs(hitbox, block_hitbox)) {
                     return true;
                 }
             }
@@ -94,7 +95,8 @@ char& get_colliding_level_cell(const Vector2 pos, const Vector2 size, const char
             }
 
             if (get_level_cell(row, column) == look_for) {
-                if (const Rectangle block_hitbox = { static_cast<float>(column), static_cast<float>(row), 1.0f, 1.0f }; CheckCollisionRecs(hitbox, block_hitbox)) {
+                if (const Rectangle block_hitbox = { static_cast<float>(column), static_cast<float>(row), 1.0f, 1.0f };
+                     CheckCollisionRecs(hitbox, block_hitbox)) {
                     return get_level_cell(row, column);
                 }
             }
